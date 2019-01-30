@@ -15,13 +15,13 @@
  * version in the future.
  *
  * @category    Mageplaza
- * @package     ${MODULENAME}
+ * @package     Mageplaza_TwitterWidget
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
 -->
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-    <widget id="mptwitterwidget_widget" class="Mageplaza\TwitterWidget\Block\Widget">
+    <widget class="Mageplaza\TwitterWidget\Block\Widget" id="mp_twitter_widget">
         <label translate="true">Mageplaza Twitter Widget</label>
         <description>Create Twitter Widget to website.</description>
         <parameters>
@@ -34,7 +34,7 @@
             <parameter name="design" xsi:type="select" visible="true" source_model="Mageplaza\TwitterWidget\Model\Config\Source\Design">
                 <label translate="true">Display</label>
             </parameter>
-            <parameter name="type" xsi:type="select" visible="true" source_model="Mageplaza\TwitterWidget\Model\Config\Source\Type">
+            <parameter name="twitter_type" xsi:type="select" visible="true" source_model="Mageplaza\TwitterWidget\Model\Config\Source\Type">
                 <label translate="true">Type</label>
             </parameter>
             <parameter name="theme" xsi:type="select" visible="true" source_model="Mageplaza\TwitterWidget\Model\Config\Source\Theme">
@@ -61,14 +61,14 @@
             </parameter>
             <parameter name="width" xsi:type="text" visible="true">
                 <label translate="true">Block width</label>
-                <description translate="true">If 0 or empty, auto width will be use</description>
+                <description translate="true">Set the maximum width of the widget. Minimum: 180, maximum: 1200. If empty, auto width will be use</description>
                 <depends>
                     <parameter name="design" value="1" />
                 </depends>
             </parameter>
             <parameter name="height" xsi:type="text" visible="true">
                 <label translate="true">Block height</label>
-                <description translate="true">If 0 or empty, default value will be use. Default: 600px</description>
+                <description translate="true">Set the maximum height of the widget. Must be greater than 200</description>
                 <depends>
                     <parameter name="design" value="1" />
                 </depends>
@@ -76,43 +76,44 @@
             </parameter>
             <parameter name="tweet_url" xsi:type="text" visible="true" required="true">
                 <label translate="true">Tweet URL</label>
+                <description>The URL of the Tweet</description>
                 <depends>
-                    <parameter name="type" value="1" />
+                    <parameter name="twitter_type" value="1" />
                 </depends>
             </parameter>
             <parameter name="hide_thread" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label translate="true">Hide thread</label>
                 <description translate="true">Declude previous Tweets in the reply thread</description>
                 <depends>
-                    <parameter name="type" value="1" />
+                    <parameter name="twitter_type" value="1" />
                 </depends>
             </parameter>
-            <parameter name="cards" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+            <parameter name="hide_media" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label translate="true">Hide media</label>
                 <description translate="true">Hide images, video, and link previews referenced in the Tweet</description>
                 <depends>
-                    <parameter name="type" value="1" />
+                    <parameter name="twitter_type" value="1" />
                 </depends>
             </parameter>
             <parameter name="timeline_url" xsi:type="text" visible="true" required="true">
                 <label translate="true">Twitter timeline URL</label>
-                <description translate="true"><![CDATA[The URL of the specified (public) Twitter timeline or Tweet URL. Learn more <a href="https://help.twitter.com/en/using-twitter/advanced-tweetdeck-features" target="_blank">here</a> to create list, collection timeline]]></description>
+                <description translate="true"><![CDATA[The URL of the specified (public) Twitter timeline. Learn more <a href="https://help.twitter.com/en/using-twitter/advanced-tweetdeck-features" target="_blank">here</a> to create list, collection timeline]]></description>
                 <depends>
-                    <parameter name="type" value="0" />
+                    <parameter name="twitter_type" value="0" />
                 </depends>
             </parameter>
             <parameter name="chrome" xsi:type="multiselect" visible="true" source_model="Mageplaza\TwitterWidget\Model\Config\Source\Chrome">
                 <label translate="true">Chrome</label>
                 <description translate="true">Toggle the display of design elements in the widget</description>
                 <depends>
-                    <parameter name="type" value="0" />
+                    <parameter name="twitter_type" value="0" />
                 </depends>
             </parameter>
             <parameter name="limit" xsi:type="text" visible="true">
                 <label translate="true">Number of Tweets displayed</label>
                 <description translate="true">Range: 1 - 20. Default: 10</description>
                 <depends>
-                    <parameter name="type" value="0" />
+                    <parameter name="twitter_type" value="0" />
                 </depends>
                 <value>10</value>
             </parameter>

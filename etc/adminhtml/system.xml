@@ -15,7 +15,7 @@
  * version in the future.
  *
  * @category    Mageplaza
- * @package     ${MODULENAME}
+ * @package     Mageplaza_TwitterWidget
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
@@ -77,12 +77,21 @@
                 <field id="width" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Block width</label>
                     <validate>validate-zero-or-greater validate-number</validate>
-                    <comment>If 0 or empty, auto width will be use</comment>
+                    <comment>Set the maximum width of the widget. Minimum: 180, maximum: 1200. If empty, auto width will be use</comment>
                 </field>
                 <field id="height" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Block height</label>
-                    <comment>If 0 or empty, default value will be use. Default: 600px</comment>
+                    <comment>Set the maximum height of the widget. Must be greater than 200</comment>
                     <validate>validate-zero-or-greater validate-number</validate>
+                </field>
+            </group>
+            <group id="snippet" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="snippet_code" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Snippet Code</label>
+                    <depends>
+                        <field id="mptwitterwidget/general/enabled">1</field>
+                    </depends>
+                    <frontend_model>Mageplaza\TwitterWidget\Block\Adminhtml\System\Snippet</frontend_model>
                 </field>
             </group>
         </section>

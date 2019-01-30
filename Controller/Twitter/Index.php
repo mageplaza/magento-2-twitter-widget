@@ -14,7 +14,7 @@
  * version in the future.
  *
  * @category    Mageplaza
- * @package     ${MODULENAME}
+ * @package     Mageplaza_TwitterWidget
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
@@ -70,7 +70,7 @@ class Index extends Action
         try {
             $params = $this->getRequest()->getParams();
             $response = $this->getEmbedResponse($params);
-            if ($response['html']) {
+            if (array_key_exists('html',$response)) {
                 $result = [
                     'status'  => true,
                     'content' => $response['html']
@@ -86,15 +86,16 @@ class Index extends Action
     }
 
     /**
-     * @param $url
+     * @param $params
      *
-     * @return array|mixed
+     * @return array
      */
     public function getEmbedResponse($params)
     {
         $result = [];
         $params['omit_script'] = '1';
         $url = 'https://publish.twitter.com/oembed?' . http_build_query($params, null, '&');
+
         $curl = $this->curlFactory->create();
         $curl->write(\Zend_Http_Client::GET, $url, '1.1', [], '');
 

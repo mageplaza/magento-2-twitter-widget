@@ -14,7 +14,7 @@
  * version in the future.
  *
  * @category    Mageplaza
- * @package     ${MODULENAME}
+ * @package     Mageplaza_TwitterWidget
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
@@ -25,7 +25,6 @@ use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 use Mageplaza\TwitterWidget\Helper\Data;
 use Mageplaza\TwitterWidget\Model\Config\Source\Design;
-use Magento\Framework\Locale\Resolver;
 
 /**
  * Class Widget
@@ -42,27 +41,19 @@ class Widget extends Template implements BlockInterface
     protected $helperData;
 
     /**
-     * @var Resolver
-     */
-    protected $locale;
-
-    /**
      * Widget constructor.
      *
      * @param Template\Context $context
      * @param Data             $helperData
-     * @param Resolver         $resolver
      * @param array            $data
      */
     public function __construct(
         Template\Context $context,
         Data $helperData,
-        Resolver $resolver,
         array $data = []
     )
     {
         $this->helperData = $helperData;
-        $this->locale = $resolver;
 
         parent::__construct($context, $data);
     }
@@ -82,7 +73,7 @@ class Widget extends Template implements BlockInterface
      */
     public function getAllOptions()
     {
-        $option = $this->getDesign();
+        $option = $this->getData('design');
         if ($option == Design::CONFIG) {
             $this->setData(array_merge($this->helperData->getDisplayConfig(), $this->getData()));
         }

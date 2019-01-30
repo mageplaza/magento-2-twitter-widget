@@ -13,7 +13,7 @@
  * version in the future.
  *
  * @category    Mageplaza
- * @package     ${MODULENAME}
+ * @package     Mageplaza_TwitterWidget
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
@@ -47,8 +47,8 @@ define([
                     border_color: this.options.params.border_color,
                     maxwidth: this.options.params.width,
                     maxheight: this.options.params.height,
-                    hide_thread: this.options.params.conversation,
-                    hide_media: this.options.params.cards
+                    hide_thread: this.options.params.hide_thread,
+                    hide_media: this.options.params.hide_thread
                 },
                 param_timeline = {
                     url: this.options.url,
@@ -62,7 +62,7 @@ define([
                 };
             $.ajax({
                 url: url_controller,
-                data: this.options.params.type === '0' ? param_timeline : params_tweet,
+                data: this.options.params.twitter_type === '0' ? param_timeline : params_tweet,
                 type: "POST",
                 success: function($result) {
                     $(id).append($result.content);
