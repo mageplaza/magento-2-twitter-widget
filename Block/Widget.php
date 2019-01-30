@@ -25,7 +25,7 @@ use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 use Mageplaza\TwitterWidget\Helper\Data;
 use Mageplaza\TwitterWidget\Model\Config\Source\Design;
-use Mageplaza\TwitterWidget\Model\Config\Source\Type;
+use Magento\Framework\Locale\Resolver;
 
 /**
  * Class Widget
@@ -42,19 +42,27 @@ class Widget extends Template implements BlockInterface
     protected $helperData;
 
     /**
+     * @var Resolver
+     */
+    protected $locale;
+
+    /**
      * Widget constructor.
      *
      * @param Template\Context $context
      * @param Data             $helperData
+     * @param Resolver         $resolver
      * @param array            $data
      */
     public function __construct(
         Template\Context $context,
         Data $helperData,
+        Resolver $resolver,
         array $data = []
     )
     {
         $this->helperData = $helperData;
+        $this->locale = $resolver;
 
         parent::__construct($context, $data);
     }

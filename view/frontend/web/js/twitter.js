@@ -42,24 +42,24 @@ define([
                 theme: this.options.params.theme,
                 link_color: this.options.params.link_color,
                 border_color: this.options.params.border_color,
-                width: this.options.params.width,
+                maxwidth: this.options.params.width,
                 height: this.options.params.height,
-                conversation: this.options.params.conversation ? "" : "none",
-                cards: this.options.params.cards ? "" : "hidden"
+                hide_thread: this.options.params.conversation,
+                hide_media: this.options.params.cards
             };
             var param_timeline = {
                 url: this.options.url,
                 theme: this.options.params.theme,
                 link_color: this.options.params.link_color,
                 border_color: this.options.params.border_color,
-                width: this.options.params.width,
-                height: this.options.params.height,
+                maxwidth: this.options.params.width,
+                maxheight: this.options.params.height,
                 chrome: this.options.params.chrome,
                 limit: this.options.params.limit
             };
             $.ajax({
                 url: url_controller,
-                data: this.options.params.type ? params_tweet : param_timeline,
+                data: this.options.params.type === '0' ? param_timeline :params_tweet,
                 type: "POST",
                 success: function($result) {
                     $(id).append($result.content);

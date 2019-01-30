@@ -80,16 +80,16 @@
                     <parameter name="type" value="1" />
                 </depends>
             </parameter>
-            <parameter name="conversation" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
-                <label translate="true">Conversation view</label>
-                <description translate="true">Include previous Tweets in the reply thread</description>
+            <parameter name="hide_thread" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Hide thread</label>
+                <description translate="true">Declude previous Tweets in the reply thread</description>
                 <depends>
                     <parameter name="type" value="1" />
                 </depends>
             </parameter>
             <parameter name="cards" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
-                <label translate="true">Show media</label>
-                <description translate="true">Display images, video, and link previews referenced in the Tweet</description>
+                <label translate="true">Hide media</label>
+                <description translate="true">Hide images, video, and link previews referenced in the Tweet</description>
                 <depends>
                     <parameter name="type" value="1" />
                 </depends>
