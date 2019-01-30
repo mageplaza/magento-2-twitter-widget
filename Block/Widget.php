@@ -86,6 +86,11 @@ class Widget extends Template implements BlockInterface
         if ($option == Design::CONFIG) {
             $this->setData(array_merge($this->helperData->getDisplayConfig(), $this->getData()));
         }
+        if ($this->getData('chrome')) {
+            $this->setData('chrome',str_replace(",", " ", $this->getData('chrome')));
+        }
+        $this->setData('follow_btn',$this->helperData->showFollowBtn());
+        $this->setData('username',$this->helperData->getUsername());
         $this->setData('url_controller',$this->getUrl('mptwitterwidget/twitter/', ['_current' => true]));
 
         return Data::jsonEncode($this->getData());

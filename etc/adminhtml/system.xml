@@ -52,7 +52,7 @@
                 </field>
                 <field id="username" translate="label comment" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Username</label>
-                    <comment>A link to a follow web intent page on Twitter.com</comment>
+                    <comment>The Twitter username of the account you would like the viewer to follow</comment>
                     <depends>
                         <field id="follow_btn">1</field>
                     </depends>

@@ -32,7 +32,9 @@ if ($block->isEnable()) :
             <h3><?php echo __($block->getData('title')) ?></h3>
             <div><?php echo __($block->getData('description')) ?></div>
         </div>
-        <div id="mptwitterwidget-block-<?php echo $widgetId ?>"></div>
+        <div id="mptwitterwidget-block-<?php echo $widgetId ?>">
+            <div id="mptwitterwidget-follow-btn-<?php echo $widgetId ?>"></div>
+        </div>
     </div>
     <script type="text/x-magento-init">
     {
@@ -46,4 +48,14 @@ if ($block->isEnable()) :
         }
     }
     </script>
+    <style type="text/css">
+        .mptwitterwidget-header {
+            width: <?php echo $block->getData('width') . 'px'?>;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .mptwitterwidget-container {
+            margin: 10px;
+        }
+    </style>
 <?php endif; ?>
