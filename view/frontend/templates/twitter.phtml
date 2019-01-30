@@ -1,0 +1,49 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     ${MODULENAME}
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var Mageplaza\TwitterWidget\Block\Widget $block */
+if ($block->isEnable()) :
+    $widgetId   = uniqid();
+    $options    = $block->getAllOptions();
+    $url = $block->getData('tweet_url') ?: $block->getData('timeline_url');
+    $url_controller = $block->getData('url_controller');
+?>
+
+    <div class="mptwitterwidget-container">
+        <div class="mptwitterwidget-header">
+            <h3><?php echo __($block->getData('title')) ?></h3>
+            <div><?php echo __($block->getData('description')) ?></div>
+        </div>
+        <div id="mptwitterwidget-block-<?php echo $widgetId ?>"></div>
+    </div>
+    <script type="text/x-magento-init">
+    {
+        "#mptwitterwidget-block-<?php echo $widgetId ?>": {
+            "Mageplaza_TwitterWidget/js/twitter": {
+                "id": "<?php echo $widgetId ?>",
+                "url": "<?php echo $url ?>",
+                "url_controller": "<?php echo $url_controller ?>",
+                "params": <?php echo $options ?>
+            }
+        }
+    }
+    </script>
+<?php endif; ?>

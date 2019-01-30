@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     ${MODULENAME}
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="mptwitterwidget" translate="label" type="text" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Twitter Widget</label>
+            <tab>mageplaza</tab>
+            <resource>Mageplaza_TwitterWidget::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="head" translate="label comment" type="button" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Mageplaza\Core\Block\Adminhtml\System\Config\Head</frontend_model>
+                    <comment><![CDATA[
+                        <ul class="mageplaza-head">
+                            <li><a href="https://docs.mageplaza.com/twitter-widget/" target="_blank">User Guide</a></li>
+                            <li><a href="https://www.mageplaza.com/contact.html" target="_blank">Contact Us</a> </li>
+                            <li><a href="https://goo.gl/forms/SrTm7YUxZoCzixhH3" target="_blank">Request features</a> </li>
+                            <li>Allow customers to login with <a href="https://www.mageplaza.com/magento-2-social-login-extension/?utm_source=extension&utm_medium=text&utm_campaign=facebook" target="_blank">Mageplaza Social Login</a></li>
+                            <span>It is free to download and use.</span>
+                        </ul>
+                        ]]></comment>
+                </field>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes to enable this module</comment>
+                </field>
+                <field id="follow_btn" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Follow Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="username" translate="label comment" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Username</label>
+                    <comment>A link to a follow web intent page on Twitter.com</comment>
+                    <depends>
+                        <field id="follow_btn">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="display" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Display</label>
+                <field id="theme" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Theme</label>
+                    <source_model>Mageplaza\TwitterWidget\Model\Config\Source\Theme</source_model>
+                </field>
+                <field id="link_color" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Link color</label>
+                    <comment>Color of link text inside a Twitter widget.</comment>
+                    <validate>jscolor {hash:true,refine:false} required-entry</validate>
+                </field>
+                <field id="border_color" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Border color</label>
+                    <comment>Color of border surrounding a Twitter widget.</comment>
+                    <validate>jscolor {hash:true,refine:false} required-entry</validate>
+                </field>
+                <field id="width" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Block width</label>
+                    <validate>validate-zero-or-greater validate-number</validate>
+                    <comment>If 0 or empty, auto width will be use</comment>
+                </field>
+                <field id="height" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Block height</label>
+                    <comment>If 0 or empty, default value will be use. Default: 600px</comment>
+                    <validate>validate-zero-or-greater validate-number</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
