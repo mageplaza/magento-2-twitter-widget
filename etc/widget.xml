@@ -60,14 +60,14 @@
                 <value>#73818f</value>
             </parameter>
             <parameter name="width" xsi:type="text" visible="true">
-                <label translate="true">Block width</label>
+                <label translate="true">Widget width</label>
                 <description translate="true">Set the maximum width of the widget. Minimum: 180, maximum: 1200. If empty, auto width will be use</description>
                 <depends>
                     <parameter name="design" value="1" />
                 </depends>
             </parameter>
             <parameter name="height" xsi:type="text" visible="true">
-                <label translate="true">Block height</label>
+                <label translate="true">Widget height</label>
                 <description translate="true">Set the maximum height of the widget. Must be greater than 200</description>
                 <depends>
                     <parameter name="design" value="1" />
