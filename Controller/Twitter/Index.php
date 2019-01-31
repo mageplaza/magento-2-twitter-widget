@@ -76,6 +76,12 @@ class Index extends Action
                     'content' => $response['html']
                 ];
             }
+            else {
+                $result = [
+                    'status'  => false,
+                    'content' => $response['message']
+                ];
+            }
 
         } catch (\Exception $e) {
             $result['content'] = $e->getMessage();
@@ -104,6 +110,9 @@ class Index extends Action
             if (!empty($resultCurl)) {
                 $responseBody = \Zend_Http_Response::extractBody($resultCurl);
                 $result += Data::jsonDecode($responseBody);
+                if (!count($result)) {
+                    $result['message'] = __('Sorry, that page doesn’t exist!');
+                }
             }
         } catch (\Exception $e) {
             $result['message'] = $e->getMessage();
