@@ -46,7 +46,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Select Yes to enable this module</comment>
                 </field>
-                <field id="follow_btn" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="follow_btn" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Show Follow Button</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
@@ -60,26 +60,26 @@
             </group>
             <group id="display" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Display</label>
-                <field id="theme" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="theme" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Theme</label>
                     <source_model>Mageplaza\TwitterWidget\Model\Config\Source\Theme</source_model>
                 </field>
-                <field id="link_color" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="link_color" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Link color</label>
                     <comment>Color of link text inside a Twitter widget.</comment>
                     <validate>jscolor {hash:true,refine:false} required-entry</validate>
                 </field>
-                <field id="border_color" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="border_color" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Border color</label>
                     <comment>Color of border surrounding a Twitter widget.</comment>
                     <validate>jscolor {hash:true,refine:false} required-entry</validate>
                 </field>
-                <field id="width" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="width" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Widget width</label>
                     <validate>validate-zero-or-greater validate-number</validate>
                     <comment>Set the maximum width of the widget. Minimum: 180, maximum: 1200. If empty, auto width will be use</comment>
                 </field>
-                <field id="height" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="height" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Widget height</label>
                     <comment>Set the maximum height of the widget. Must be greater than 200</comment>
                     <validate>validate-zero-or-greater validate-number</validate>

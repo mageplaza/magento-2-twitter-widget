@@ -25,9 +25,9 @@
         <mptwitterwidget>
             <general>
                 <enabled>0</enabled>
+                <follow_btn>0</follow_btn>
             </general>
             <display>
-                <follow_btn>1</follow_btn>
                 <theme>light</theme>
                 <link_color>#2b7bb9</link_color>
                 <border_color>#73818f</border_color>
