@@ -43,15 +43,15 @@ class Chrome implements ArrayInterface
         $options = [
             [
                 'value' => self::NOHEADER,
-                'label' => __('Noheader')
+                'label' => __('No Header')
             ],
             [
                 'value' => self::NOFOOTER,
-                'label' => __('Nofooter')
+                'label' => __('No Footer')
             ],
             [
                 'value' => self::NOBORDERS,
-                'label' => __('Noborders')
+                'label' => __('No Borders')
             ],
             [
                 'value' => self::TRANSPARENT,
@@ -59,7 +59,7 @@ class Chrome implements ArrayInterface
             ],
             [
                 'value' => self::NOSCROLLBAR,
-                'label' => __('Noscrollbar')
+                'label' => __('No Scrollbar')
             ]
         ];
 

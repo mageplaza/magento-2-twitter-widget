@@ -39,6 +39,7 @@ define([
                 url_controller = this.options.url_controller,
                 follow_btn = this.options.params.follow_btn,
                 element_btn = $("#mptwitterwidget-follow-btn-" + this.options.id)[0],
+                id_load = "#mptwitterwidget-load-" + this.options.id,
                 username = this.options.params.username,
                 params_tweet = {
                     url: this.options.url,
@@ -70,9 +71,20 @@ define([
                     if (follow_btn === '1') {
                         twttr.widgets.createFollowButton(
                             username,
-                            element_btn
+                            element_btn,
+                            {
+                                showCount: false,
+                            }
                         );
                     }
+                    twttr.events.bind(
+                      'loaded',
+                      function (event) {
+                        event.widgets.forEach(function (widget) {
+                            $(id_load).hide();
+                        });
+                      }
+                    );
                 },
                 error: function($result) {
                     console.log($result.content);
