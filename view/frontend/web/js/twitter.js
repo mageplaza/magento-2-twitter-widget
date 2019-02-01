@@ -49,7 +49,7 @@ define([
                     maxwidth: this.options.params.width,
                     maxheight: this.options.params.height,
                     hide_thread: this.options.params.hide_thread,
-                    hide_media: this.options.params.hide_thread
+                    hide_media: this.options.params.hide_media
                 },
                 param_timeline = {
                     url: this.options.url,
