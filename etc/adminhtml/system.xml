@@ -75,19 +75,20 @@
                     <validate>jscolor {hash:true,refine:false} required-entry</validate>
                 </field>
                 <field id="width" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Block width</label>
+                    <label>Widget width</label>
                     <validate>validate-zero-or-greater validate-number</validate>
                     <comment>Set the maximum width of the widget. Minimum: 180, maximum: 1200. If empty, auto width will be use</comment>
                 </field>
                 <field id="height" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Block height</label>
+                    <label>Widget height</label>
                     <comment>Set the maximum height of the widget. Must be greater than 200</comment>
                     <validate>validate-zero-or-greater validate-number</validate>
                 </field>
             </group>
             <group id="snippet" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Snippet Code</label>
                 <field id="snippet_code" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Snippet Code</label>
+                    <label>Example</label>
                     <depends>
                         <field id="mptwitterwidget/general/enabled">1</field>
                     </depends>

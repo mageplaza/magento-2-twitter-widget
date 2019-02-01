@@ -41,7 +41,7 @@ class Snippet extends Field
         $html .= '</p><strong>';
 
         $html .= __('CMS Page/Static Block');
-        $html .= '</strong><br /><pre style="background-color: #f5f5dc;"><code>Example: {{block class="Mageplaza\TwitterWidget\Block\Widget" title="Twitter timeline" description="" design="0" twitter_type="0" timeline_url="https://twitter.com/TwitterDev" limit="10"}}</code></pre><strong>';
+        $html .= '</strong><br /><pre style="background-color: #f5f5dc;"><code>{{block class="Mageplaza\TwitterWidget\Block\Widget" title="Twitter timeline" description="" design="0" twitter_type="0" timeline_url="https://twitter.com/TwitterDev" limit="10"}}</code></pre><strong>';
 
         $html .= __('Template .phtml file');
         $html .= '</strong><br /><pre style="background-color: #f5f5dc;"><code>' . $this->_escaper->escapeHtml('<?php echo $block->getLayout()->createBlock(\Mageplaza\TwitterWidget\Block\Widget::class)->setData([

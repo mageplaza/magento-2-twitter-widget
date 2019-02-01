@@ -33,6 +33,7 @@
             </parameter>
             <parameter name="design" xsi:type="select" visible="true" source_model="Mageplaza\TwitterWidget\Model\Config\Source\Design">
                 <label translate="true">Display</label>
+                <description><![CDATA[<a href="https://developer.twitter.com/en/docs/twitter-for-websites/timelines/guides/oembed-api" target="_blank">Custom parameters</a>]]></description>
             </parameter>
             <parameter name="twitter_type" xsi:type="select" visible="true" source_model="Mageplaza\TwitterWidget\Model\Config\Source\Type">
                 <label translate="true">Type</label>
