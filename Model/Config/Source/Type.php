@@ -13,10 +13,10 @@
  * Do not edit or add to this file if you wish to upgrade this extension to newer
  * version in the future.
  *
- * @category    Mageplaza
- * @package     Mageplaza_TwitterWidget
- * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
- * @license     https://www.mageplaza.com/LICENSE.txt
+ * @category  Mageplaza
+ * @package   Mageplaza_TwitterWidget
+ * @copyright Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license   https://www.mageplaza.com/LICENSE.txt
  */
 
 namespace Mageplaza\TwitterWidget\Model\Config\Source;
@@ -25,6 +25,7 @@ use Magento\Framework\Option\ArrayInterface;
 
 /**
  * Class Type
+ *
  * @package Mageplaza\TwitterWidget\Model\Config\Source
  */
 class Type implements ArrayInterface
@@ -50,5 +51,4 @@ class Type implements ArrayInterface
 
         return $options;
     }
-
 }

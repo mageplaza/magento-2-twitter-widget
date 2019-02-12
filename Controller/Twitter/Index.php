@@ -13,10 +13,10 @@
  * Do not edit or add to this file if you wish to upgrade this extension to newer
  * version in the future.
  *
- * @category    Mageplaza
- * @package     Mageplaza_TwitterWidget
- * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
- * @license     https://www.mageplaza.com/LICENSE.txt
+ * @category  Mageplaza
+ * @package   Mageplaza_TwitterWidget
+ * @copyright Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license   https://www.mageplaza.com/LICENSE.txt
  */
 
 namespace Mageplaza\TwitterWidget\Controller\Twitter;
@@ -29,6 +29,7 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Class Twitter
+ *
  * @package Mageplaza\TwitterWidget\Controller
  */
 class Index extends Action
@@ -46,19 +47,18 @@ class Index extends Action
     /**
      * Index constructor.
      *
-     * @param Context         $context
-     * @param CurlFactory     $curlFactory
+     * @param Context $context
+     * @param CurlFactory $curlFactory
      * @param LoggerInterface $logger
      */
     public function __construct(
         Context $context,
         CurlFactory $curlFactory,
         LoggerInterface $logger
-    )
-    {
+    ) {
         parent::__construct($context);
         $this->curlFactory = $curlFactory;
-        $this->logger           = $logger;
+        $this->logger      = $logger;
     }
 
     /**
@@ -68,21 +68,19 @@ class Index extends Action
     {
         $result = ['status' => false];
         try {
-            $params = $this->getRequest()->getParams();
+            $params   = $this->getRequest()->getParams();
             $response = $this->getEmbedResponse($params);
-            if (array_key_exists('html',$response)) {
+            if (array_key_exists('html', $response)) {
                 $result = [
                     'status'  => true,
                     'content' => $response['html']
                 ];
-            }
-            else {
+            } else {
                 $result = [
                     'status'  => false,
                     'content' => $response['message']
                 ];
             }
-
         } catch (\Exception $e) {
             $result['content'] = $e->getMessage();
             $this->logger->critical($e);
@@ -98,9 +96,9 @@ class Index extends Action
      */
     public function getEmbedResponse($params)
     {
-        $result = [];
+        $result                = [];
         $params['omit_script'] = '1';
-        $url = 'https://publish.twitter.com/oembed?' . http_build_query($params, null, '&');
+        $url                   = 'https://publish.twitter.com/oembed?' . http_build_query($params, null, '&');
 
         $curl = $this->curlFactory->create();
         $curl->write(\Zend_Http_Client::GET, $url, '1.1', [], '');
@@ -109,9 +107,9 @@ class Index extends Action
             $resultCurl = $curl->read();
             if (!empty($resultCurl)) {
                 $responseBody = \Zend_Http_Response::extractBody($resultCurl);
-                $result += Data::jsonDecode($responseBody);
+                $result       += Data::jsonDecode($responseBody);
                 if (!count($result)) {
-                    $result['message'] = __('Sorry, that page doesn’t exist!');
+                    $result['message'] = __('Sorry, that page doesn\'t exist!');
                 }
             }
         } catch (\Exception $e) {

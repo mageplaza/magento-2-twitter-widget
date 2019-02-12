@@ -13,10 +13,10 @@
  * Do not edit or add to this file if you wish to upgrade this extension to newer
  * version in the future.
  *
- * @category    Mageplaza
- * @package     Mageplaza_TwitterWidget
- * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
- * @license     https://www.mageplaza.com/LICENSE.txt
+ * @category  Mageplaza
+ * @package   Mageplaza_TwitterWidget
+ * @copyright Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license   https://www.mageplaza.com/LICENSE.txt
  */
 
 namespace Mageplaza\TwitterWidget\Helper;
@@ -25,12 +25,12 @@ use Mageplaza\Core\Helper\AbstractData;
 
 /**
  * Class Data
+ *
  * @package Mageplaza\TwitterWidget\Helper
  */
 class Data extends AbstractData
 {
     const CONFIG_MODULE_PATH = 'mptwitterwidget';
-
 
     /**
      * @param string $code
@@ -52,7 +52,7 @@ class Data extends AbstractData
      */
     public function getTheme($store = null)
     {
-        return $this->getDisplayConfig('theme',$store);
+        return $this->getDisplayConfig('theme', $store);
     }
 
     /**
@@ -62,7 +62,7 @@ class Data extends AbstractData
      */
     public function getLinkColor($store = null)
     {
-        return $this->getDisplayConfig('link_color',$store);
+        return $this->getDisplayConfig('link_color', $store);
     }
 
     /**
@@ -72,7 +72,7 @@ class Data extends AbstractData
      */
     public function getBorderColor($store = null)
     {
-        return $this->getDisplayConfig('border_color',$store);
+        return $this->getDisplayConfig('border_color', $store);
     }
 
     /**
@@ -82,7 +82,7 @@ class Data extends AbstractData
      */
     public function getWidth($store = null)
     {
-        return ($this->getDisplayConfig('width',$store) != 0) ? $this->getDisplayConfig('width',$store) : null;
+        return ($this->getDisplayConfig('width', $store) != 0) ? $this->getDisplayConfig('width', $store) : null;
     }
 
     /**
@@ -92,7 +92,7 @@ class Data extends AbstractData
      */
     public function getHeight($store = null)
     {
-        return $this->getDisplayConfig('height',$store) ?: 600;
+        return $this->getDisplayConfig('height', $store) ?: 600;
     }
 
     /**
@@ -102,7 +102,7 @@ class Data extends AbstractData
      */
     public function showFollowBtn($store = null)
     {
-        return $this->getConfigGeneral('follow_btn',$store);
+        return $this->getConfigGeneral('follow_btn', $store);
     }
 
     /**
@@ -112,6 +112,6 @@ class Data extends AbstractData
      */
     public function getUsername($store = null)
     {
-        return $this->getConfigGeneral('username',$store);
+        return $this->getConfigGeneral('username', $store);
     }
 }
