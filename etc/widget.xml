@@ -84,7 +84,7 @@
             </parameter>
             <parameter name="hide_thread" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label translate="true">Hide thread</label>
-                <description translate="true">Declude previous Tweets in the reply thread</description>
+                <description translate="true">Excluding previous Tweets in the reply thread</description>
                 <depends>
                     <parameter name="twitter_type" value="1" />
                 </depends>

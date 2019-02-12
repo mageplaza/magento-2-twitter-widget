@@ -24,7 +24,6 @@ if ($block->isEnable()) :
     $widgetId       = uniqid();
     $options        = $block->getAllOptions();
     $url            = $block->getData('tweet_url') ?: $block->getData('timeline_url');
-    $url_controller = $block->getData('url_controller');
 ?>
 
     <div class="mptwitterwidget-container">
@@ -44,7 +43,6 @@ if ($block->isEnable()) :
             "Mageplaza_TwitterWidget/js/twitter": {
                 "id": "<?php echo $widgetId ?>",
                 "url": "<?php echo $url ?>",
-                "url_controller": "<?php echo $url_controller ?>",
                 "params": <?php echo $options ?>
             }
         }

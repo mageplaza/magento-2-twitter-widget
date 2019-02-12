@@ -82,7 +82,6 @@ class Widget extends Template implements BlockInterface
         }
         $this->setData('follow_btn', $this->helperData->showFollowBtn());
         $this->setData('username', $this->helperData->getUsername());
-        $this->setData('url_controller', $this->getUrl('mptwitterwidget/twitter/', ['_current' => true]));
 
         return Data::jsonEncode($this->getData());
     }

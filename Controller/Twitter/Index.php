@@ -100,6 +100,7 @@ class Index extends Action
         $params['omit_script'] = '1';
         $url                   = 'https://publish.twitter.com/oembed?' . http_build_query($params, null, '&');
 
+        /** @var \Magento\Framework\HTTP\Adapter\Curl $curl */
         $curl = $this->curlFactory->create();
         $curl->write(\Zend_Http_Client::GET, $url, '1.1', [], '');
 
@@ -109,7 +110,7 @@ class Index extends Action
                 $responseBody = \Zend_Http_Response::extractBody($resultCurl);
                 $result       += Data::jsonDecode($responseBody);
                 if (!count($result)) {
-                    $result['message'] = __('Sorry, that page doesn\'t exist!');
+                    $result['message'] = __('Sorry, that twitter page doesn\'t exist!');
                 }
             }
         } catch (\Exception $e) {
