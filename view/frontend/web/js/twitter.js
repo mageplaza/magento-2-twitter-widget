@@ -57,9 +57,10 @@ define(
                     $.ajax(
                         {
                             url: url_controller,
+                            // Check the twitter type to get the parameter (timeline is 0)
                             data: this.options.params.twitter_type === '0' ?
                                 _.extend(default_param, param_timeline) :
-                                _.extend(default_param, params_tweet), // Check the twitter type to get the parameter (timeline is 0)
+                                _.extend(default_param, params_tweet),
                             type: "POST",
                             success: function ($result) {
                                 $(id).append($result.content);
@@ -79,7 +80,7 @@ define(
                                     'loaded',
                                     function (event) {
                                         event.widgets.forEach(
-                                            function (widget) {
+                                            function () {
                                                 $(id_load).hide();
                                             }
                                         );
