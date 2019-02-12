@@ -45,19 +45,27 @@ class Index extends Action
     protected $logger;
 
     /**
+     * @var Data
+     */
+    protected $_helperData;
+
+    /**
      * Index constructor.
      *
      * @param Context $context
      * @param CurlFactory $curlFactory
+     * @param Data $helperData
      * @param LoggerInterface $logger
      */
     public function __construct(
         Context $context,
         CurlFactory $curlFactory,
+        Data $helperData,
         LoggerInterface $logger
     ) {
         parent::__construct($context);
         $this->curlFactory = $curlFactory;
+        $this->_helperData = $helperData;
         $this->logger      = $logger;
     }
 
@@ -86,7 +94,7 @@ class Index extends Action
             $this->logger->critical($e);
         }
 
-        return $this->getResponse()->representJson(Data::jsonEncode($result));
+        return $this->getResponse()->representJson($this->_helperData->getJsonEncode($result));
     }
 
     /**
@@ -107,8 +115,8 @@ class Index extends Action
         try {
             $resultCurl = $curl->read();
             if (!empty($resultCurl)) {
-                $responseBody = \Zend_Http_Response::extractBody($resultCurl);
-                $result       += Data::jsonDecode($responseBody);
+                $responseBody = $this->_helperData->getHttpResponse($resultCurl);
+                $result       += $this->_helperData->getJsonDecode($responseBody);
                 if (!count($result)) {
                     $result['message'] = __('Sorry, that twitter page doesn\'t exist!');
                 }

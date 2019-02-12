@@ -114,4 +114,34 @@ class Data extends AbstractData
     {
         return $this->getConfigGeneral('username', $store);
     }
+
+    /**
+     * @param $data
+     *
+     * @return string
+     */
+    public function getJsonEncode($data)
+    {
+        return Data::jsonEncode($data);
+    }
+
+    /**
+     * @param $data
+     *
+     * @return mixed
+     */
+    public function getJsonDecode($data)
+    {
+        return Data::jsonDecode($data);
+    }
+
+    /**
+     * @param $data
+     *
+     * @return string
+     */
+    public function getHttpResponse($data)
+    {
+        return \Zend_Http_Response::extractBody($data);
+    }
 }
