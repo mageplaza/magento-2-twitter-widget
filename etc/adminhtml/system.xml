@@ -77,9 +77,6 @@
                 <label>Snippet Code</label>
                 <field id="snippet_code" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Example</label>
-                    <depends>
-                        <field id="mptwitterwidget/general/enabled">1</field>
-                    </depends>
                     <frontend_model>Mageplaza\TwitterWidget\Block\Adminhtml\System\Snippet</frontend_model>
                 </field>
             </group>
