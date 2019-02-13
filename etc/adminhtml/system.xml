@@ -29,18 +29,6 @@
             <resource>Mageplaza_TwitterWidget::configuration</resource>
             <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>
-                <field id="head" translate="label comment" type="button" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <frontend_model>Mageplaza\Core\Block\Adminhtml\System\Config\Head</frontend_model>
-                    <comment><![CDATA[
-                        <ul class="mageplaza-head">
-                            <li><a href="https://docs.mageplaza.com/twitter-widget/" target="_blank">User Guide</a></li>
-                            <li><a href="https://www.mageplaza.com/contact.html" target="_blank">Contact Us</a> </li>
-                            <li><a href="https://goo.gl/forms/SrTm7YUxZoCzixhH3" target="_blank">Request features</a> </li>
-                            <li>Allow customers to login with <a href="https://www.mageplaza.com/magento-2-social-login-extension/?utm_source=extension&utm_medium=text&utm_campaign=facebook" target="_blank">Mageplaza Social Login</a></li>
-                            <span>It is free to download and use.</span>
-                        </ul>
-                        ]]></comment>
-                </field>
                 <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>

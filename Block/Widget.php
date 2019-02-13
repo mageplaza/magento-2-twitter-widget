@@ -33,7 +33,9 @@ use Mageplaza\TwitterWidget\Model\Config\Source\Design;
  */
 class Widget extends Template implements BlockInterface
 {
-
+    /**
+     * @var string
+     */
     protected $_template = "twitter.phtml";
 
     /**
@@ -45,8 +47,8 @@ class Widget extends Template implements BlockInterface
      * Widget constructor.
      *
      * @param Template\Context $context
-     * @param Data             $helperData
-     * @param array            $data
+     * @param Data $helperData
+     * @param array $data
      */
     public function __construct(
         Template\Context $context,
@@ -77,9 +79,11 @@ class Widget extends Template implements BlockInterface
         if ($option == Design::CONFIG) {
             $this->setData(array_merge($this->helperData->getDisplayConfig(), $this->getData()));
         }
+
         if ($this->getData('chrome')) {
             $this->setData('chrome', str_replace(",", " ", $this->getData('chrome')));
         }
+
         $this->setData('follow_btn', $this->helperData->showFollowBtn());
         $this->setData('username', $this->helperData->getUsername());
 

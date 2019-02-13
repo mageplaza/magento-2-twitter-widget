@@ -19,9 +19,9 @@
  */
 define(
     [
-    "jquery",
-    "underscore",
-    "mage/url"
+        "jquery",
+        "underscore",
+        "mage/url"
     ], function ($, _, url) {
         "use strict";
         $.widget(
@@ -31,14 +31,14 @@ define(
                 },
 
                 _ajaxSubmit: function () {
-                    var id             = "#mptwitterwidget-block-" + this.options.id,
-                        element        = $(id)[0],
+                    var id = "#mptwitterwidget-block-" + this.options.id,
+                        element = $(id)[0],
                         url_controller = url.build('mptwitterwidget/twitter/'),
-                        follow_btn     = this.options.params.follow_btn,
-                        element_btn    = $("#mptwitterwidget-follow-btn-" + this.options.id)[0],
-                        id_load        = "#mptwitterwidget-load-" + this.options.id,
-                        username       = this.options.params.username,
-                        default_param   = {
+                        follow_btn = this.options.params.follow_btn,
+                        element_btn = $("#mptwitterwidget-follow-btn-" + this.options.id)[0],
+                        id_load = "#mptwitterwidget-load-" + this.options.id,
+                        username = this.options.params.username,
+                        default_param = {
                             url: this.options.url,
                             theme: this.options.params.theme,
                             link_color: this.options.params.link_color,
@@ -46,7 +46,7 @@ define(
                             maxwidth: this.options.params.width,
                             maxheight: this.options.params.height
                         },
-                        params_tweet   = {
+                        params_tweet = {
                             hide_thread: this.options.params.hide_thread,
                             hide_media: this.options.params.hide_media
                         },

@@ -30,9 +30,8 @@ use Magento\Framework\Option\ArrayInterface;
  */
 class Theme implements ArrayInterface
 {
-
     const LIGHT = 'light';
-    const DARK = 'dark';
+    const DARK  = 'dark';
 
     /**
      * @return array

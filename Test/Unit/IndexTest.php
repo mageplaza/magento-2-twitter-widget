@@ -19,13 +19,14 @@
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
+
 namespace Mageplaza\TwitterWidget\Test\Unit;
 
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\App\ResponseInterface;
-use Magento\Framework\HTTP\Adapter\CurlFactory;
 use Magento\Framework\HTTP\Adapter\Curl;
+use Magento\Framework\HTTP\Adapter\CurlFactory;
 use Mageplaza\TwitterWidget\Controller\Twitter\Index as TwitterIndex;
 use Mageplaza\TwitterWidget\Helper\Data;
 use PHPUnit\Framework\TestCase;
@@ -74,16 +75,16 @@ class IndexTest extends TestCase
 
     protected function setUp()
     {
-        $this->context     = $this->getMockBuilder(Context::class)->disableOriginalConstructor()->getMock();
+        $this->context = $this->getMockBuilder(Context::class)->disableOriginalConstructor()->getMock();
         $this->curlFactory = $this->getMockBuilder(CurlFactory::class)->disableOriginalConstructor()->setMethods(['create'])->getMock();
-        $this->logger      = $this->getMockBuilder(LoggerInterface::class)->getMock();
+        $this->logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
         $this->_helperData = $this->getMockBuilder(Data::class)->disableOriginalConstructor()->getMock();
         $this->_request = $this->getMockBuilder(RequestInterface::class)->getMock();
-        $this->_response = $this->getMockBuilder(ResponseInterface::class)->setMethods(['representJson','sendResponse'])->getMock();
+        $this->_response = $this->getMockBuilder(ResponseInterface::class)->setMethods(['representJson', 'sendResponse'])->getMock();
         $this->context->method('getRequest')->willReturn($this->_request);
         $this->context->method('getResponse')->willReturn($this->_response);
 
-        $this->_controller = new TwitterIndex($this->context,$this->curlFactory,$this->_helperData,$this->logger);
+        $this->_controller = new TwitterIndex($this->context, $this->curlFactory, $this->_helperData, $this->logger);
     }
 
     public function testAdminInstance()
@@ -94,7 +95,7 @@ class IndexTest extends TestCase
     public function testExecute()
     {
         $resultArray = [
-            'status' => true,
+            'status'  => true,
             'content' => "<a>123123</a>"
         ];
         $resultJson = '{status:true,content:<a>123123</a>}';

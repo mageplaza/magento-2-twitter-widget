@@ -1,0 +1,52 @@
+"Use the following code to show Twitter widget in any places which you want.","Use the following code to show Twitter widget in any places which you want."
+"CMS Page/Static Block","CMS Page/Static Block"
+"Template .phtml file","Template .phtml file"
+"Layout file","Layout file"
+"Sorry, that twitter page doesn't exist!","Sorry, that twitter page doesn't exist!"
+"No Header","No Header"
+"No Footer","No Footer"
+"No Borders","No Borders"
+Transparent,Transparent
+"No Scrollbar","No Scrollbar"
+"Use Config","Use Config"
+Custom,Custom
+Light,Light
+Dark,Dark
+Timeline,Timeline
+Tweet,Tweet
+Loading...,Loading...
+"Twitter Widget","Twitter Widget"
+General,General
+Enable,Enable
+"Show Follow Button","Show Follow Button"
+Username,Username
+"The Twitter username of the account you would like the viewer to follow","The Twitter username of the account you would like the viewer to follow"
+Display,Display
+Theme,Theme
+"Link color","Link color"
+"Color of link text inside a Twitter widget.","Color of link text inside a Twitter widget."
+"Border color","Border color"
+"Color of border surrounding a Twitter widget.","Color of border surrounding a Twitter widget."
+"Widget width","Widget width"
+"Set the maximum width of the widget. Minimum: 180, maximum: 1200. If empty, auto width will be use","Set the maximum width of the widget. Minimum: 180, maximum: 1200. If empty, auto width will be use"
+"Widget height","Widget height"
+"Set the maximum height of the widget. Must be greater than 200","Set the maximum height of the widget. Must be greater than 200"
+"Snippet Code","Snippet Code"
+Example,Example
+"Mageplaza Twitter Widget","Mageplaza Twitter Widget"
+Title,Title
+Description,Description
+Type,Type
+"Color of link text inside a Twitter widget. Use hex code. Refer <a href=""https://www.w3schools.com/colors/colors_picker.asp"" target=""_blank"">here</a>","Color of link text inside a Twitter widget. Use hex code. Refer <a href=""https://www.w3schools.com/colors/colors_picker.asp"" target=""_blank"">here</a>"
+"Color of border surrounding a Twitter widget. Use hex code. Refer <a href=""https://www.w3schools.com/colors/colors_picker.asp"" target=""_blank"">here</a>","Color of border surrounding a Twitter widget. Use hex code. Refer <a href=""https://www.w3schools.com/colors/colors_picker.asp"" target=""_blank"">here</a>"
+"Tweet URL","Tweet URL"
+"Hide thread","Hide thread"
+"Excluding previous Tweets in the reply thread","Excluding previous Tweets in the reply thread"
+"Hide media","Hide media"
+"Hide images, video, and link previews referenced in the Tweet","Hide images, video, and link previews referenced in the Tweet"
+"Twitter timeline URL","Twitter timeline URL"
+"The URL of the specified (public) Twitter timeline. Learn more <a href=""https://help.twitter.com/en/using-twitter/advanced-tweetdeck-features"" target=""_blank"">here</a> to create list, collection timeline","The URL of the specified (public) Twitter timeline. Learn more <a href=""https://help.twitter.com/en/using-twitter/advanced-tweetdeck-features"" target=""_blank"">here</a> to create list, collection timeline"
+Chrome,Chrome
+"Toggle the display of design elements in the widget","Toggle the display of design elements in the widget"
+"Number of Tweets displayed","Number of Tweets displayed"
+"Range: 1 - 20. The timeline will automatically adjust its height to display specified number of Tweets","Range: 1 - 20. The timeline will automatically adjust its height to display specified number of Tweets"

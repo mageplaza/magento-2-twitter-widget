@@ -21,10 +21,10 @@
 
 /** @var Mageplaza\TwitterWidget\Block\Widget $block */
 if ($block->isEnable()) :
-    $widgetId       = uniqid();
-    $options        = $block->getAllOptions();
-    $url            = $block->getData('tweet_url') ?: $block->getData('timeline_url');
-?>
+    $widgetId = uniqid();
+    $options = $block->getAllOptions();
+    $url = $block->getData('tweet_url') ?: $block->getData('timeline_url');
+    ?>
 
     <div class="mptwitterwidget-container">
         <div class="mptwitterwidget-header">
@@ -53,6 +53,7 @@ if ($block->isEnable()) :
             width: <?php echo $block->getData('width') . 'px'?>;
             margin: 10px;
         }
+
         @media (max-width: 767px) {
             .mptwitterwidget-header {
                 width: auto;

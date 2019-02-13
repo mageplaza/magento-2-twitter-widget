@@ -34,7 +34,7 @@ class Data extends AbstractData
 
     /**
      * @param string $code
-     * @param null   $store
+     * @param null $store
      *
      * @return array|mixed
      */

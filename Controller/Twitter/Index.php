@@ -63,10 +63,11 @@ class Index extends Action
         Data $helperData,
         LoggerInterface $logger
     ) {
-        parent::__construct($context);
         $this->curlFactory = $curlFactory;
         $this->_helperData = $helperData;
-        $this->logger      = $logger;
+        $this->logger = $logger;
+
+        parent::__construct($context);
     }
 
     /**
@@ -76,7 +77,7 @@ class Index extends Action
     {
         $result = ['status' => false];
         try {
-            $params   = $this->getRequest()->getParams();
+            $params = $this->getRequest()->getParams();
             $response = $this->getEmbedResponse($params);
             if (array_key_exists('html', $response)) {
                 $result = [
@@ -104,9 +105,9 @@ class Index extends Action
      */
     public function getEmbedResponse($params)
     {
-        $result                = [];
+        $result = [];
         $params['omit_script'] = '1';
-        $url                   = 'https://publish.twitter.com/oembed?' . http_build_query($params, null, '&');
+        $url = 'https://publish.twitter.com/oembed?' . http_build_query($params, null, '&');
 
         /** @var \Magento\Framework\HTTP\Adapter\Curl $curl */
         $curl = $this->curlFactory->create();
@@ -116,7 +117,7 @@ class Index extends Action
             $resultCurl = $curl->read();
             if (!empty($resultCurl)) {
                 $responseBody = $this->_helperData->getHttpResponse($resultCurl);
-                $result       += $this->_helperData->getJsonDecode($responseBody);
+                $result += $this->_helperData->getJsonDecode($responseBody);
                 if (!count($result)) {
                     $result['message'] = __('Sorry, that twitter page doesn\'t exist!');
                 }

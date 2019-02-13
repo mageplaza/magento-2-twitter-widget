@@ -31,7 +31,7 @@ use Magento\Framework\Option\ArrayInterface;
 class Type implements ArrayInterface
 {
     const TIMELINE = 0;
-    const TWEET = 1;
+    const TWEET    = 1;
 
     /**
      * @return array
