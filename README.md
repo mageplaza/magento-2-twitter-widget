@@ -12,7 +12,7 @@
 
 **Q: I got error: Mageplaza_Core has been already defined**
 
-A: Read solution: https://github.com/mageplaza/module-core/issues/3
+A: Read solution [here](https://github.com/mageplaza/module-core/issues/3)
 
 **Q: How many Twitter Widget types can be supported to display on sites?**
 
@@ -61,7 +61,7 @@ Timeline and Tweets are the two embedded styles supported by Mageplaza Twitter W
 
 By pasting the URL of a Twitter account from the backend, the store can easily show the latest Tweets based on a twitter account, list or even curated collections. As a result, the recent Tweets can be viewed in a compact and linear view on store sites.
 
-![Imgur](https://i.imgur.com/KuDm3BW.gif)
+![Imgur](https://i.imgur.com/l6VskRH.gif)
 
 #### Embedded Tweets
 
