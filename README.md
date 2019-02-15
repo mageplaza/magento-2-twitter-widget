@@ -61,7 +61,7 @@ Timeline and Tweets are the two embedded styles supported by Mageplaza Twitter W
 
 By pasting the URL of a Twitter account from the backend, the store can easily show the latest Tweets based on a twitter account, list or even curated collections. As a result, the recent Tweets can be viewed in a compact and linear view on store sites.
 
-![Imgur](https://i.imgur.com/l6VskRH.gif)
+![Imgur](https://i.imgur.com/N04cEg4.gif)
 
 #### Embedded Tweets
 
@@ -88,7 +88,7 @@ The module assists to display photos and videos of any Tweets easily. The store 
 Besides, displaying images, amazing videos can also be placed on shopping sites to attract customers to remain on your sites. This is a smart way to draw shoppers attention and also reduce sites’ bounce rate.
 
 
-![Imgur](https://i.imgur.com/MOuScCZ.gif)
+![Imgur](https://i.imgur.com/lXDc2dd.gif)
 
 ### Easy to customize the display of Twitter
 
