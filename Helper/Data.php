@@ -118,16 +118,6 @@ class Data extends AbstractData
     /**
      * @param $data
      *
-     * @return string
-     */
-    public function getJsonEncode($data)
-    {
-        return Data::jsonEncode($data);
-    }
-
-    /**
-     * @param $data
-     *
      * @return mixed
      */
     public function getJsonDecode($data)

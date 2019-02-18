@@ -27,6 +27,8 @@ use Magento\Framework\App\RequestInterface;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\HTTP\Adapter\Curl;
 use Magento\Framework\HTTP\Adapter\CurlFactory;
+use Magento\Framework\Controller\Result\Json;
+use Magento\Framework\Controller\Result\JsonFactory;
 use Mageplaza\TwitterWidget\Controller\Twitter\Index as TwitterIndex;
 use Mageplaza\TwitterWidget\Helper\Data;
 use PHPUnit\Framework\TestCase;
@@ -69,6 +71,11 @@ class IndexTest extends TestCase
     protected $_response;
 
     /**
+     * @var JsonFactory |\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $resultJsonFactory;
+
+    /**
      * @var TwitterIndex |\PHPUnit_Framework_MockObject_MockObject
      */
     private $_controller;
@@ -79,12 +86,13 @@ class IndexTest extends TestCase
         $this->curlFactory = $this->getMockBuilder(CurlFactory::class)->disableOriginalConstructor()->setMethods(['create'])->getMock();
         $this->logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
         $this->_helperData = $this->getMockBuilder(Data::class)->disableOriginalConstructor()->getMock();
+        $this->resultJsonFactory = $this->getMockBuilder(JsonFactory::class)->disableOriginalConstructor()->setMethods(['create'])->getMock();
         $this->_request = $this->getMockBuilder(RequestInterface::class)->getMock();
         $this->_response = $this->getMockBuilder(ResponseInterface::class)->setMethods(['representJson', 'sendResponse'])->getMock();
         $this->context->method('getRequest')->willReturn($this->_request);
         $this->context->method('getResponse')->willReturn($this->_response);
 
-        $this->_controller = new TwitterIndex($this->context, $this->curlFactory, $this->_helperData, $this->logger);
+        $this->_controller = new TwitterIndex($this->context, $this->curlFactory, $this->_helperData, $this->resultJsonFactory, $this->logger);
     }
 
     public function testAdminInstance()
@@ -98,7 +106,7 @@ class IndexTest extends TestCase
             'status'  => true,
             'content' => "<a>123123</a>"
         ];
-        $resultJson = '{status:true,content:<a>123123</a>}';
+        $result = '{status:true,content:<a>123123</a>}';
         $params = [
             'url' => 'https://twitter.com/TwitterDev'
         ];
@@ -109,9 +117,10 @@ class IndexTest extends TestCase
         $this->_helperData->method('getHttpResponse')->with('\n {html:<a>123123</a>}')->willReturn('{html:<a>123123</a>}');
         $this->_helperData->method('getJsonDecode')->with('{html:<a>123123</a>}')->willReturn(['html' => '<a>123123</a>']);
         $curl->method('close')->willReturnSelf();
-        $this->_helperData->method('getJsonEncode')->with($resultArray)->willReturn($resultJson);
-        $this->_response->method('representJson')->with($resultJson)->willReturn($resultJson);
+        $resultJson = $this->getMockBuilder(Json::class)->disableOriginalConstructor()->getMock();
+        $this->resultJsonFactory->method('create')->willReturn($resultJson);
+        $resultJson->method('setData')->with($resultArray)->willReturn($result);
 
-        $this->assertEquals($resultJson, $this->_controller->execute());
+        $this->assertEquals($result, $this->_controller->execute());
     }
 }

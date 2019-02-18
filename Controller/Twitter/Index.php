@@ -23,6 +23,7 @@ namespace Mageplaza\TwitterWidget\Controller\Twitter;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
+use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Framework\HTTP\Adapter\CurlFactory;
 use Mageplaza\TwitterWidget\Helper\Data;
 use Psr\Log\LoggerInterface;
@@ -50,22 +51,30 @@ class Index extends Action
     protected $_helperData;
 
     /**
+     * @var JsonFactory
+     */
+    protected $resultJsonFactory;
+
+    /**
      * Index constructor.
      *
-     * @param Context $context
-     * @param CurlFactory $curlFactory
-     * @param Data $helperData
+     * @param Context         $context
+     * @param CurlFactory     $curlFactory
+     * @param Data            $helperData
+     * @param JsonFactory     $jsonFactory
      * @param LoggerInterface $logger
      */
     public function __construct(
         Context $context,
         CurlFactory $curlFactory,
         Data $helperData,
+        JsonFactory $jsonFactory,
         LoggerInterface $logger
     ) {
-        $this->curlFactory = $curlFactory;
-        $this->_helperData = $helperData;
-        $this->logger = $logger;
+        $this->curlFactory       = $curlFactory;
+        $this->_helperData       = $helperData;
+        $this->resultJsonFactory = $jsonFactory;
+        $this->logger            = $logger;
 
         parent::__construct($context);
     }
@@ -95,7 +104,10 @@ class Index extends Action
             $this->logger->critical($e);
         }
 
-        return $this->getResponse()->representJson($this->_helperData->getJsonEncode($result));
+        /** @var \Magento\Framework\Controller\Result\Json $resultJson */
+        $resultJson = $this->resultJsonFactory->create();
+
+        return $resultJson->setData($result);
     }
 
     /**
