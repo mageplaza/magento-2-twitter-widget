@@ -61,13 +61,13 @@ Timeline and Tweets are the two embedded styles supported by Mageplaza Twitter W
 
 By pasting the URL of a Twitter account from the backend, the store can easily show the latest Tweets based on a twitter account, list or even curated collections. As a result, the recent Tweets can be viewed in a compact and linear view on store sites.
 
-![Imgur](https://i.imgur.com/N04cEg4.gif)
+![Magento 2 Twitter Widget module](https://i.imgur.com/N04cEg4.gif)
 
 #### Embedded Tweets
 
 Admins are allowed to pick the most interesting Tweets to display on sites. By adding attractive photos, video, card media, and even live stream video, customers will have the chance to experience sites with excitement and curiosity. In addition, store owners can add any Tweets to any positions easily by copying and pasting.
 
-![Imgur](https://i.imgur.com/NF72890.png)
+![Magento 2 Twitter Widget extension](https://i.imgur.com/NF72890.png)
 
 ### Interact directly with Tweets on sites
 
@@ -79,7 +79,7 @@ The feature enhances the user experience significantly by allowing Twitter users
 
 The buyers are able to redirect to a new Tweet by clicking a Tweets’ hashtag or mention.
 
-![Imgur](https://i.imgur.com/gwlF4Fo.png)
+![Magento 2 Twitter Widget](https://i.imgur.com/gwlF4Fo.png)
 
 ### Media Supported
 
@@ -88,7 +88,7 @@ The module assists to display photos and videos of any Tweets easily. The store 
 Besides, displaying images, amazing videos can also be placed on shopping sites to attract customers to remain on your sites. This is a smart way to draw shoppers attention and also reduce sites’ bounce rate.
 
 
-![Imgur](https://i.imgur.com/lXDc2dd.gif)
+![Magento 2 Twitter Widget feed](https://i.imgur.com/lXDc2dd.gif)
 
 ### Easy to customize the display of Twitter
 
@@ -101,13 +101,13 @@ The Twitter block‘s style can be customized to better suit the color concept o
 
 The flexible customization helps admins to design the page appearance to suit specific business purposes.
 
-![Imgur](https://i.imgur.com/MXwa8vl.png)
+![Magento 2 Twitter Widget module](https://i.imgur.com/MXwa8vl.png)
 
 ### Supporting snippet widget    
 
 By using the snippet widget, the Twitter block can be placed in any positions for specific purposes. In particular, owners only need to embed the snippet code on CMS page, Static Block, .PHTML file, Layout file in order to show Tweets on certain positions.
 
-![Imgur](https://i.imgur.com/N2NisqH.png)
+![Magento 2 Twitter Widget Free](https://i.imgur.com/N2NisqH.png)
 
 ## 5. More Features 
 
@@ -123,7 +123,7 @@ Admins can configure in the backend to view or hide thread related to a Tweet.
 
 The thumbnails, videos or links can be hidden or showed.
 
-## 6. Full Features List
+## 6. Full Magento 2 Twitter Widget Features
 
 ### For store admins
 - Allow enabling/disabling the module
@@ -141,25 +141,25 @@ The thumbnails, videos or links can be hidden or showed.
 - Have better experience during shopping on sites 
 
 
-## 7. User Guide
+## 7. Twitter Widget User Guide
 
 ### How to use
 
 Customers can see the Twitter images at any pages 
 
-![Twitter widget 1](https://i.imgur.com/JNK2iT8.png)
+![Magento 2 Twitter Widget user guide](https://i.imgur.com/JNK2iT8.png)
 
-### How to Configure
+### How to Configure Magento 2 Twitter Widget
 
 #### 1. Configuration
 
 From the Admin panel, Choose `Stores > Configuration > Mageplaza > Twitter Widget`
 
-![Twitter widget 2](https://i.imgur.com/aeO6e0e.png)
+![Magento 2 Twitter Widget configure](https://i.imgur.com/aeO6e0e.png)
 
 ##### 1.1. General Configuration
 
-![Twitter widget 3](https://i.imgur.com/mVuC4E4.png)
+![Magento 2 Twitter Widget by Mageplaza](https://i.imgur.com/mVuC4E4.png)
 
 - **Enable**: Select `Yes` to enable the module.
 - **Show Follow Button**: Choose `Yes` to show the **Follow button** for a Twitter account 
@@ -170,7 +170,7 @@ From the Admin panel, Choose `Stores > Configuration > Mageplaza > Twitter Widge
 
 ##### 1.2. Display
 
-![Twitter widget 4](https://i.imgur.com/XmwyTW8.png)
+![Best Magento 2 Twitter Widget](https://i.imgur.com/XmwyTW8.png)
 
 - **Theme**: Choose a theme to display the Twitter Widget. There are 2 themes that you can choose from which is **Light** and **Dark**.
 - **Link color**: Customize the color of the links, mention @ and hashtag # that appear in a Tweet.
@@ -186,7 +186,7 @@ From the Admin panel, Choose `Stores > Configuration > Mageplaza > Twitter Widge
   
   ##### 1.3. Snippet Code
   
-  ![Twitter widget 5](https://i.imgur.com/iKgafSQ.png)
+  ![Magento 2 Twitter extension](https://i.imgur.com/iKgafSQ.png)
 
 - **XML File**: Copy and paste the code into a file that includes.xml where you want to display the Twitter Widget in the frontend.
 - **CMS Page, CMS Static Block**: Copy and paste the code to the CMS page or CMS block you want to display the Twitter Widget in the frontend.
@@ -209,7 +209,7 @@ From the Admin panel, Choose `Stores > Configuration > Mageplaza > Twitter Widge
   - Choose the current theme you are applying in the **Design Theme**.
   - Click **Continue** button.
   
-  ![Twitter widget 6](https://i.imgur.com/K8YV2TD.png)
+  ![Magento 2 Twitter module](https://i.imgur.com/K8YV2TD.png)
 
 **Step 2: Complete the Storefront Properties section**
 - In the **Storefront Properties** section,
@@ -217,13 +217,13 @@ From the Admin panel, Choose `Stores > Configuration > Mageplaza > Twitter Widge
   - Show the block at all or any store views in the **Assign to Store View** field.
   - Set the **Sort Order** if many blocks are placed at the same container. The block with zero value will appear at the top.
   
-  ![Twitter widget 7](https://i.imgur.com/cuTjCgr.png)
+  ![Magento 2 Twitter extension free](https://i.imgur.com/cuTjCgr.png)
 
 - In the **Layout Updates** section, click on **Layout Update** to set the layout.
   - Choose the category, product, or page where shows the block in the **Display on the** field.
   - If set to a specific page, you need to choose Page you want the block to display and set **Container** that is the position of the block.
   
-  ![Twitter widget 8](https://i.imgur.com/3UkevTT.png)
+  ![Magento 2 Twitter plugin](https://i.imgur.com/3UkevTT.png)
 
 **Step 3: Configure the Widget Options to show Twitter Widget**
 - **Title**: Enter the title of the Twitter Widget to display in the frontend
@@ -232,7 +232,7 @@ From the Admin panel, Choose `Stores > Configuration > Mageplaza > Twitter Widge
   - *Display = Use Config*: Use **Theme, Link Color, Border Color, Widget width, Widget height** in the **Configuration** to show Twitter Widget in the frontend.
   - *Display = Custom*: Admins can set up Twitter Widget display in  the frontend (Theme, Link Color, Border Color, Widget width, Widget height).
   
-  ![Twitter widget 9](https://i.imgur.com/QVmT19S.png)
+  ![Magento 2 Twitter Widget 2.3.2](https://i.imgur.com/QVmT19S.png)
 
 
 - **Type**
@@ -246,12 +246,27 @@ From the Admin panel, Choose `Stores > Configuration > Mageplaza > Twitter Widge
     - **Noscrollbar**: Disable the widget scroll bar
 - **Number of Tweet Display**: Limit the number of displayed Tweet between **1-20**. If the field is left blank, **Show more Tweets** button will appear.
 
-![Twitter widget 10](https://i.imgur.com/t6Xdrjg.png)
+![Magento 2 Twitter Widget extension 2019](https://i.imgur.com/t6Xdrjg.png)
 
 - **Type = Tweet**: Display Tweets and replied Tweets.
 - **Twitter timeline URL**: The links of the Tweet redirecting to Twitter page.
 - **Hide thread**: Choose `Yes` to hide replied Tweets that are related to a Tweets 
 - **Hide Media**: Choose `Yes`to hide the images videos, and preview link related to Tweets.
 
+**Peoplse also search:**
+- latest tweet magento 2 extension
+- magento 2 twitter feed
+- free twitter widget magento 2
+- best twitter widget for Magento 2
+- magento 2 twitter button
+- twitter widget generator magento 2
 
-
+**Other free Magento 2 extensions on Github**
+- [Magento 2 SEO Suite](https://github.com/mageplaza/magento-2-seo)
+- [Magento 2 Google Maps](https://github.com/mageplaza/magento-2-google-maps)
+- [Magento 2 Delete Orders](https://github.com/mageplaza/magento-2-delete-orders)
+- [Magento 2 GDPR Compilation](https://github.com/mageplaza/magento-2-gdpr)
+- [Magento 2 login as customer](https://github.com/mageplaza/magento-2-login-as-customer)
+- [Magento 2 Social login free](https://github.com/mageplaza/magento-2-social-login)
+- [Magento 2 Advanced reporting extension](https://github.com/mageplaza/magento-2-reports)
+- [Magento 2 Blog extension](https://github.com/mageplaza/magento-2-blog)
