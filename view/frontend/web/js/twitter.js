@@ -20,9 +20,8 @@
 define(
     [
         "jquery",
-        "underscore",
-        "mage/url"
-    ], function ($, _, url) {
+        "underscore"
+    ], function ($, _) {
         "use strict";
         $.widget(
             "mageplaza.twitter", {
@@ -33,7 +32,7 @@ define(
                 _ajaxSubmit: function () {
                     var id = "#mptwitterwidget-block-" + this.options.id,
                         element = $(id)[0],
-                        url_controller = url.build('mptwitterwidget/twitter/'),
+                        url_controller = this.options.requestUrl,
                         follow_btn = this.options.params.follow_btn,
                         element_btn = $("#mptwitterwidget-follow-btn-" + this.options.id)[0],
                         id_load = "#mptwitterwidget-load-" + this.options.id,
@@ -54,6 +53,7 @@ define(
                             chrome: this.options.params.chrome,
                             limit: this.options.params.limit
                         };
+
                     $.ajax(
                         {
                             url: url_controller,

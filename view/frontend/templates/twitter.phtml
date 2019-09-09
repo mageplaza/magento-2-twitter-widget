@@ -28,29 +28,30 @@ if ($block->isEnable()) :
 
     <div class="mptwitterwidget-container">
         <div class="mptwitterwidget-header">
-            <h3><?php echo __($block->getData('title')) ?></h3>
-            <div><?php echo __($block->getData('description')) ?></div>
+            <h3><?= $block->escapeHtml(__($block->getData('title'))) ?></h3>
+            <div><?= $block->escapeHtml(__($block->getData('description')))  ?></div>
         </div>
-        <div id="mptwitterwidget-block-<?php echo $widgetId ?>">
-            <div id="mptwitterwidget-follow-btn-<?php echo $widgetId ?>"></div>
-            <div id="mptwitterwidget-load-<?php echo $widgetId ?>"
-                 style="font-size: medium;"><?= __('Loading...'); ?></div>
+        <div id="mptwitterwidget-block-<?= /* @noEscape */ $widgetId ?>">
+            <div id="mptwitterwidget-follow-btn-<?= /* @noEscape */ $widgetId ?>"></div>
+            <div id="mptwitterwidget-load-<?= /* @noEscape */ $widgetId ?>"
+                 style="font-size: medium;"><?= /* @noEscape */ __('Loading...') ?></div>
         </div>
     </div>
     <script type="text/x-magento-init">
     {
-        "#mptwitterwidget-block-<?php echo $widgetId ?>": {
+        "#mptwitterwidget-block-<?= /* @noEscape */  $widgetId ?>": {
             "Mageplaza_TwitterWidget/js/twitter": {
-                "id": "<?php echo $widgetId ?>",
-                "url": "<?php echo $url ?>",
-                "params": <?php echo $options ?>
+                "id": "<?= /* @noEscape */  $widgetId ?>",
+                "url": "<?=  $block->escapeUrl($url) ?>",
+                "requestUrl": "<?=  $block->escapeUrl($block->getRequestUrl()) ?>",
+                "params": <?= /* @noEscape */   $options ?>
             }
         }
     }
     </script>
     <style type="text/css">
         .mptwitterwidget-header {
-            width: <?php echo $block->getData('width') . 'px'?>;
+            width: <?= $block->escapeCss($block->getData('width') . 'px')?>;
             margin: 10px;
         }
 
