@@ -89,4 +89,12 @@ class Widget extends Template implements BlockInterface
 
         return Data::jsonEncode($this->getData());
     }
+
+    /**
+     * @return string
+     */
+    public function getRequestUrl()
+    {
+        return $this->_urlBuilder->getUrl('mptwitterwidget/twitter/');
+    }
 }

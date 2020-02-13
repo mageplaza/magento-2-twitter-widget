@@ -21,11 +21,18 @@
 
 namespace Mageplaza\TwitterWidget\Controller\Twitter;
 
+use Exception;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\ResponseInterface;
+use Magento\Framework\Controller\Result\Json;
+use Magento\Framework\Controller\Result\JsonFactory;
+use Magento\Framework\Controller\ResultInterface;
+use Magento\Framework\HTTP\Adapter\Curl;
 use Magento\Framework\HTTP\Adapter\CurlFactory;
 use Mageplaza\TwitterWidget\Helper\Data;
 use Psr\Log\LoggerInterface;
+use Zend_Http_Client;
 
 /**
  * Class Twitter
@@ -50,34 +57,42 @@ class Index extends Action
     protected $_helperData;
 
     /**
+     * @var JsonFactory
+     */
+    protected $resultJsonFactory;
+
+    /**
      * Index constructor.
      *
      * @param Context $context
      * @param CurlFactory $curlFactory
      * @param Data $helperData
+     * @param JsonFactory $jsonFactory
      * @param LoggerInterface $logger
      */
     public function __construct(
         Context $context,
         CurlFactory $curlFactory,
         Data $helperData,
+        JsonFactory $jsonFactory,
         LoggerInterface $logger
     ) {
-        $this->curlFactory = $curlFactory;
-        $this->_helperData = $helperData;
-        $this->logger = $logger;
+        $this->curlFactory       = $curlFactory;
+        $this->_helperData       = $helperData;
+        $this->resultJsonFactory = $jsonFactory;
+        $this->logger            = $logger;
 
         parent::__construct($context);
     }
 
     /**
-     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface
+     * @return ResponseInterface|ResultInterface
      */
     public function execute()
     {
         $result = ['status' => false];
         try {
-            $params = $this->getRequest()->getParams();
+            $params   = $this->getRequest()->getParams();
             $response = $this->getEmbedResponse($params);
             if (array_key_exists('html', $response)) {
                 $result = [
@@ -90,12 +105,15 @@ class Index extends Action
                     'content' => $response['message']
                 ];
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $result['content'] = $e->getMessage();
             $this->logger->critical($e);
         }
 
-        return $this->getResponse()->representJson($this->_helperData->getJsonEncode($result));
+        /** @var Json $resultJson */
+        $resultJson = $this->resultJsonFactory->create();
+
+        return $resultJson->setData($result);
     }
 
     /**
@@ -105,24 +123,24 @@ class Index extends Action
      */
     public function getEmbedResponse($params)
     {
-        $result = [];
+        $result                = [];
         $params['omit_script'] = '1';
-        $url = 'https://publish.twitter.com/oembed?' . http_build_query($params, null, '&');
+        $url                   = 'https://publish.twitter.com/oembed?' . http_build_query($params, null, '&');
 
-        /** @var \Magento\Framework\HTTP\Adapter\Curl $curl */
+        /** @var Curl $curl */
         $curl = $this->curlFactory->create();
-        $curl->write(\Zend_Http_Client::GET, $url, '1.1', [], '');
+        $curl->write(Zend_Http_Client::GET, $url, '1.1', [], '');
 
         try {
             $resultCurl = $curl->read();
             if (!empty($resultCurl)) {
                 $responseBody = $this->_helperData->getHttpResponse($resultCurl);
-                $result += $this->_helperData->getJsonDecode($responseBody);
+                $result       += $this->_helperData->getJsonDecode($responseBody);
                 if (!count($result)) {
                     $result['message'] = __('Sorry, that twitter page doesn\'t exist!');
                 }
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $result['message'] = $e->getMessage();
         }
 

@@ -25,11 +25,14 @@ namespace Mageplaza\TwitterWidget\Test\Unit;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\App\ResponseInterface;
+use Magento\Framework\Controller\Result\Json;
+use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Framework\HTTP\Adapter\Curl;
 use Magento\Framework\HTTP\Adapter\CurlFactory;
 use Mageplaza\TwitterWidget\Controller\Twitter\Index as TwitterIndex;
 use Mageplaza\TwitterWidget\Helper\Data;
 use PHPUnit\Framework\TestCase;
+use PHPUnit_Framework_MockObject_MockObject;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -39,52 +42,67 @@ use Psr\Log\LoggerInterface;
 class IndexTest extends TestCase
 {
     /**
-     * @var Context|\PHPUnit_Framework_MockObject_MockObject
+     * @var Context|PHPUnit_Framework_MockObject_MockObject
      */
     private $context;
 
     /**
-     * @var CurlFactory |\PHPUnit_Framework_MockObject_MockObject
+     * @var CurlFactory |PHPUnit_Framework_MockObject_MockObject
      */
     protected $curlFactory;
 
     /**
-     * @var LoggerInterface |\PHPUnit_Framework_MockObject_MockObject
+     * @var LoggerInterface |PHPUnit_Framework_MockObject_MockObject
      */
     protected $logger;
 
     /**
-     * @var Data |\PHPUnit_Framework_MockObject_MockObject
+     * @var Data |PHPUnit_Framework_MockObject_MockObject
      */
     protected $_helperData;
 
     /**
-     * @var RequestInterface |\PHPUnit_Framework_MockObject_MockObject
+     * @var RequestInterface |PHPUnit_Framework_MockObject_MockObject
      */
     protected $_request;
 
     /**
-     * @var ResponseInterface |\PHPUnit_Framework_MockObject_MockObject
+     * @var ResponseInterface |PHPUnit_Framework_MockObject_MockObject
      */
     protected $_response;
 
     /**
-     * @var TwitterIndex |\PHPUnit_Framework_MockObject_MockObject
+     * @var JsonFactory |PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $resultJsonFactory;
+
+    /**
+     * @var TwitterIndex |PHPUnit_Framework_MockObject_MockObject
      */
     private $_controller;
 
     protected function setUp()
     {
-        $this->context = $this->getMockBuilder(Context::class)->disableOriginalConstructor()->getMock();
-        $this->curlFactory = $this->getMockBuilder(CurlFactory::class)->disableOriginalConstructor()->setMethods(['create'])->getMock();
-        $this->logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
-        $this->_helperData = $this->getMockBuilder(Data::class)->disableOriginalConstructor()->getMock();
-        $this->_request = $this->getMockBuilder(RequestInterface::class)->getMock();
-        $this->_response = $this->getMockBuilder(ResponseInterface::class)->setMethods(['representJson', 'sendResponse'])->getMock();
+        $this->context           = $this->getMockBuilder(Context::class)->disableOriginalConstructor()->getMock();
+        $this->curlFactory       = $this->getMockBuilder(CurlFactory::class)->disableOriginalConstructor()->setMethods(['create'])->getMock();
+        $this->logger            = $this->getMockBuilder(LoggerInterface::class)->getMock();
+        $this->_helperData       = $this->getMockBuilder(Data::class)->disableOriginalConstructor()->getMock();
+        $this->resultJsonFactory = $this->getMockBuilder(JsonFactory::class)->disableOriginalConstructor()->setMethods(['create'])->getMock();
+        $this->_request          = $this->getMockBuilder(RequestInterface::class)->getMock();
+        $this->_response         = $this->getMockBuilder(ResponseInterface::class)->setMethods([
+            'representJson',
+            'sendResponse'
+        ])->getMock();
         $this->context->method('getRequest')->willReturn($this->_request);
         $this->context->method('getResponse')->willReturn($this->_response);
 
-        $this->_controller = new TwitterIndex($this->context, $this->curlFactory, $this->_helperData, $this->logger);
+        $this->_controller = new TwitterIndex(
+            $this->context,
+            $this->curlFactory,
+            $this->_helperData,
+            $this->resultJsonFactory,
+            $this->logger
+        );
     }
 
     public function testAdminInstance()
@@ -98,8 +116,8 @@ class IndexTest extends TestCase
             'status'  => true,
             'content' => "<a>123123</a>"
         ];
-        $resultJson = '{status:true,content:<a>123123</a>}';
-        $params = [
+        $result      = '{status:true,content:<a>123123</a>}';
+        $params      = [
             'url' => 'https://twitter.com/TwitterDev'
         ];
         $this->_request->method('getParams')->willReturn($params);
@@ -109,9 +127,10 @@ class IndexTest extends TestCase
         $this->_helperData->method('getHttpResponse')->with('\n {html:<a>123123</a>}')->willReturn('{html:<a>123123</a>}');
         $this->_helperData->method('getJsonDecode')->with('{html:<a>123123</a>}')->willReturn(['html' => '<a>123123</a>']);
         $curl->method('close')->willReturnSelf();
-        $this->_helperData->method('getJsonEncode')->with($resultArray)->willReturn($resultJson);
-        $this->_response->method('representJson')->with($resultJson)->willReturn($resultJson);
+        $resultJson = $this->getMockBuilder(Json::class)->disableOriginalConstructor()->getMock();
+        $this->resultJsonFactory->method('create')->willReturn($resultJson);
+        $resultJson->method('setData')->with($resultArray)->willReturn($result);
 
-        $this->assertEquals($resultJson, $this->_controller->execute());
+        $this->assertEquals($result, $this->_controller->execute());
     }
 }

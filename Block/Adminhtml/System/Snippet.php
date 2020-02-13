@@ -32,7 +32,7 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 class Snippet extends Field
 {
     /**
-     * @param  AbstractElement $element
+     * @param AbstractElement $element
      *
      * @return string
      */
@@ -47,7 +47,7 @@ class Snippet extends Field
 
         $html .= __('Template .phtml file');
         $html .= '</strong><br /><pre style="background-color: #f5f5dc;"><code>' . $this->_escaper->escapeHtml(
-                '<?php echo $block->getLayout()->createBlock(\Mageplaza\TwitterWidget\Block\Widget::class)->setData([
+            '<?php echo $block->getLayout()->createBlock(\Mageplaza\TwitterWidget\Block\Widget::class)->setData([
         "title" => "Twitter timeline",
         "description" => "",
         "design" => "0",
@@ -56,11 +56,11 @@ class Snippet extends Field
         "limit" => "10"
         ])
     ->toHtml();?>'
-            ) . '</code></pre><strong>';
+        ) . '</code></pre><strong>';
 
         $html .= __('Layout file');
         $html .= '</strong><br /><pre style="background-color: #f5f5dc;"><code>' . $this->_escaper->escapeHtml(
-                '<block class="Mageplaza\TwitterWidget\Block\Widget" name="mp_twitter_widget" >
+            '<block class="Mageplaza\TwitterWidget\Block\Widget" name="mp_twitter_widget" >
 <arguments>
     <argument name="title" xsi:type="string">Twitter timeline</argument>
     <argument name="description" xsi:type="string"></argument>
@@ -70,7 +70,7 @@ class Snippet extends Field
     <argument name="limit" xsi:type="string">10</argument>
 </arguments>
 </block>'
-            ) . '</code></pre>';
+        ) . '</code></pre>';
 
         $html .= '</div>';
 
