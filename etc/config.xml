@@ -32,7 +32,6 @@
             </general>
             <display>
                 <theme>light</theme>
-                <link_color>#2b7bb9</link_color>
                 <border_color>#73818f</border_color>
                 <height>600</height>
             </display>

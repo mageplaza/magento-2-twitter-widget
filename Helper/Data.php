@@ -61,16 +61,6 @@ class Data extends AbstractData
      *
      * @return mixed
      */
-    public function getLinkColor($store = null)
-    {
-        return $this->getDisplayConfig('link_color', $store);
-    }
-
-    /**
-     * @param null $store
-     *
-     * @return mixed
-     */
     public function getBorderColor($store = null)
     {
         return $this->getDisplayConfig('border_color', $store);
