@@ -44,14 +44,6 @@
                     <parameter name="design" value="1"/>
                 </depends>
             </parameter>
-            <parameter name="link_color" xsi:type="text" visible="true" required="true">
-                <label translate="true">Link color</label>
-                <description translate="true"><![CDATA[Color of link text inside a Twitter widget. Use hex code. Refer <a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank">here</a>]]></description>
-                <depends>
-                    <parameter name="design" value="1"/>
-                </depends>
-                <value>#2b7bb9</value>
-            </parameter>
             <parameter name="border_color" xsi:type="text" visible="true" required="true">
                 <label translate="true">Border color</label>
                 <description translate="true"><![CDATA[Color of border surrounding a Twitter widget. Use hex code. Refer <a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank">here</a>]]></description>

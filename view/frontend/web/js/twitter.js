@@ -40,7 +40,6 @@ define(
                         default_param = {
                             url: this.options.url,
                             theme: this.options.params.theme,
-                            link_color: this.options.params.link_color,
                             border_color: this.options.params.border_color,
                             maxwidth: this.options.params.width,
                             maxheight: this.options.params.height
