@@ -136,7 +136,7 @@ class Index extends Action
             if (!empty($resultCurl)) {
                 $responseBody = $this->_helperData->getHttpResponse($resultCurl);
                 $result       += $this->_helperData->getJsonDecode($responseBody);
-                if (!count($result)) {
+                if (empty($result)) {
                     $result['message'] = __('Sorry, that twitter page doesn\'t exist!');
                 }
             }

@@ -22,7 +22,7 @@
 /** @var Mageplaza\TwitterWidget\Block\Widget $block */
 if ($block->isEnable()) :
     $helper = $this->helper(\Mageplaza\TwitterWidget\Helper\Data::class);
-    $widgetId = uniqid();
+    $widgetId = uniqid('-', false);
     $options = $block->getAllOptions();
     $url = $block->getData('tweet_url') ?: $block->getData('timeline_url');
     $width = (float) $helper->getWidth();
@@ -37,18 +37,13 @@ if ($block->isEnable()) :
         <?php if ($height > 0 && $width > 0): ?>
             <div id="mptwitterwidget-block-<?= /* @noEscape */ $widgetId ?>"
                  style='height: <?= /* @noEscape */ $height ?>px; width: <?= /* @noEscape */ $width+10 ?>px; overflow: overlay;'>
-
-                <div id="mptwitterwidget-follow-btn-<?= /* @noEscape */ $widgetId ?>"></div>
-                <div id="mptwitterwidget-load-<?= /* @noEscape */ $widgetId ?>"
-                     style="font-size: medium;"><?= /* @noEscape */ __('Loading...') ?></div>
-            </div>
         <?php else : ?>
             <div id="mptwitterwidget-block-<?= /* @noEscape */ $widgetId ?>">
+        <?php endif ?>
                 <div id="mptwitterwidget-follow-btn-<?= /* @noEscape */ $widgetId ?>"></div>
                 <div id="mptwitterwidget-load-<?= /* @noEscape */ $widgetId ?>"
                      style="font-size: medium;"><?= /* @noEscape */ __('Loading...') ?></div>
             </div>
-        <?php endif ?>
     </div>
     <script type="text/x-magento-init">
     {
