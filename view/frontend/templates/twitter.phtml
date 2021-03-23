@@ -21,12 +21,12 @@
 
 /** @var Mageplaza\TwitterWidget\Block\Widget $block */
 if ($block->isEnable()) :
-    $helper = $this->helper(\Mageplaza\TwitterWidget\Helper\Data::class);
+    $helper   = $this->helper(\Mageplaza\TwitterWidget\Helper\Data::class);
     $widgetId = uniqid('-', false);
-    $options = $block->getAllOptions();
-    $url = $block->getData('tweet_url') ?: $block->getData('timeline_url');
-    $width = (float) $helper->getWidth();
-    $height = (float) $helper->getHeight();
+    $options  = $block->getAllOptions();
+    $url      = $block->getData('tweet_url') ?: $block->getData('timeline_url');
+    $width    = (float) $helper->getWidth();
+    $height   = (float) $helper->getHeight();
     ?>
 
     <div class="mptwitterwidget-container">
@@ -34,15 +34,16 @@ if ($block->isEnable()) :
             <h3><?= $block->escapeHtml(__($block->getData('title'))) ?></h3>
             <div><?= $block->escapeHtml(__($block->getData('description')))  ?></div>
         </div>
-        <?php if ($height > 0 && $width > 0): ?>
+        <?php if ($height > 0 && $width > 0) : ?>
             <div id="mptwitterwidget-block-<?= /* @noEscape */ $widgetId ?>"
-                 style='height: <?= /* @noEscape */ $height ?>px; width: <?= /* @noEscape */ $width+10 ?>px; overflow: overlay;'>
+                 style='height: <?= /* @noEscape */ $height ?>px;
+                     width: <?= /* @noEscape */ $width+10 ?>px; overflow: overlay;'>
         <?php else : ?>
             <div id="mptwitterwidget-block-<?= /* @noEscape */ $widgetId ?>">
         <?php endif ?>
                 <div id="mptwitterwidget-follow-btn-<?= /* @noEscape */ $widgetId ?>"></div>
                 <div id="mptwitterwidget-load-<?= /* @noEscape */ $widgetId ?>"
-                     style="font-size: medium;"><?= /* @noEscape */ __('Loading...') ?></div>
+                     style="font-size: medium;"><?= $block->escapeHtml(__('Loading...')) ?></div>
             </div>
     </div>
     <script type="text/x-magento-init">
@@ -69,8 +70,16 @@ if ($block->isEnable()) :
             }
         }
 
-        #mptwitterwidget-block-<?= /* @noEscape */ $widgetId ?>::-webkit-scrollbar {width: 6px;}
-        #mptwitterwidget-block-<?= /* @noEscape */ $widgetId ?>::-webkit-scrollbar-track {box-shadow: inset 0 0 1px #33333359;}
-        #mptwitterwidget-block-<?= /* @noEscape */ $widgetId ?>::-webkit-scrollbar-thumb {background: #33333359; border-radius: 10px;}
+        #mptwitterwidget-block-<?= /* @noEscape */ $widgetId ?>::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #mptwitterwidget-block-<?= /* @noEscape */ $widgetId ?>::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 1px #33333359;
+        }
+
+        #mptwitterwidget-block-<?= /* @noEscape */ $widgetId ?>::-webkit-scrollbar-thumb {
+            background: #33333359; border-radius: 10px;
+        }
     </style>
 <?php endif; ?>
