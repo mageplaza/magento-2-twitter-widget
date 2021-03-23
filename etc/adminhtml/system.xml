@@ -61,7 +61,7 @@
                 </field>
                 <field id="width" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Widget width</label>
-                    <validate>validate-zero-or-greater validate-number</validate>
+                    <validate>validate-zero-or-greater validate-number validate-digits validate-digits-range digits-range-180-1200</validate>
                     <comment>Set the maximum width of the widget. Minimum: 180, maximum: 1200. If empty, auto width will be use</comment>
                 </field>
                 <field id="height" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">

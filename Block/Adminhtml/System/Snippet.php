@@ -38,7 +38,7 @@ class Snippet extends Field
      */
     protected function _getElementHtml(AbstractElement $element)
     {
-        $html = '<div class="control-value" style="padding-top: 8px; font-size: 11px;"><p>';
+        $html  = '<div class="control-value" style="padding-top: 8px; font-size: 11px;"><p>';
         $html .= __('Use the following code to show Twitter widget in any places which you want.');
         $html .= '</p><strong>';
 
