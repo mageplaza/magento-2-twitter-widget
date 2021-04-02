@@ -34,19 +34,19 @@ if ($block->isEnable()) :
             <h3><?= $block->escapeHtml(__($block->getData('title'))) ?></h3>
             <div><?= $block->escapeHtml(__($block->getData('description')))  ?></div>
         </div>
-        <?php if ($height > 0 && $width > 0): ?>
+        <?php if ($height > 0 && $width > 0) : ?>
             <div id="mptwitterwidget-block-<?= /* @noEscape */ $widgetId ?>"
                  style='height: <?= /* @noEscape */ $height ?>px; width: <?= /* @noEscape */ $width+10 ?>px; overflow: overlay;'>
 
                 <div id="mptwitterwidget-follow-btn-<?= /* @noEscape */ $widgetId ?>"></div>
                 <div id="mptwitterwidget-load-<?= /* @noEscape */ $widgetId ?>"
-                     style="font-size: medium;"><?= /* @noEscape */ __('Loading...') ?></div>
+                     style="font-size: medium;"><?= $block->escapeHtml(__('Loading...')) ?></div>
             </div>
         <?php else : ?>
             <div id="mptwitterwidget-block-<?= /* @noEscape */ $widgetId ?>">
                 <div id="mptwitterwidget-follow-btn-<?= /* @noEscape */ $widgetId ?>"></div>
                 <div id="mptwitterwidget-load-<?= /* @noEscape */ $widgetId ?>"
-                     style="font-size: medium;"><?= /* @noEscape */ __('Loading...') ?></div>
+                     style="font-size: medium;"><?= $block->escapeHtml(__('Loading...')) ?></div>
             </div>
         <?php endif ?>
     </div>
