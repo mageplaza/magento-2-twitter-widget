@@ -41,8 +41,8 @@ define(
                             url: this.options.url,
                             theme: this.options.params.theme,
                             border_color: this.options.params.border_color,
-                            maxwidth: this.options.params.width,
-                            maxheight: this.options.params.height
+                            maxWidth: this.options.params.width,
+                            maxHeight: this.options.params.height
                         },
                         params_tweet   = {
                             hide_thread: this.options.params.hide_thread,
@@ -61,8 +61,13 @@ define(
                                 _.extend(default_param, param_timeline) :
                                 _.extend(default_param, params_tweet),
                             type: "POST",
-                            success: function ($result) {
-                                $(id).append($result.content);
+                            success: function (result) {
+                                $(id).append(result.content);
+                                $(id).css({
+                                    'width' : default_param.maxWidth + 'px',
+                                    'height' : default_param.maxHeight + 'px'
+                                });
+                                $('.mptwitterwidget-header').css('width', default_param.maxWidth);
                                 twttr.widgets.load(element);
                                 // create follow button if enable
                                 if (follow_btn === '1') {
