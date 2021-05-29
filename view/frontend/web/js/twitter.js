@@ -85,6 +85,9 @@ define(
                                     function (event) {
                                         event.widgets.forEach(
                                             function () {
+                                                if (params_tweet.hide_media !== '0') {
+                                                    $(".twitter-timeline").contents().find(".timeline-Tweet-media").css("display", "none");
+                                                }
                                                 $(id_load).hide();
                                             }
                                         );
