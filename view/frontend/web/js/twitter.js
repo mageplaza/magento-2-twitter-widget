@@ -85,7 +85,7 @@ define(
                                     function (event) {
                                         event.widgets.forEach(
                                             function () {
-                                                if (params_tweet.hide_media !== '0') {
+                                                if (params_tweet.hide_media !== '0' && typeof params_tweet.hide_media !== 'undefined') {
                                                     $(".twitter-timeline").contents().find(".timeline-Tweet-media").css("display", "none");
                                                 }
                                                 $(id_load).hide();
