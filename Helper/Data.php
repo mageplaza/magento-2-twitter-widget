@@ -22,7 +22,6 @@
 namespace Mageplaza\TwitterWidget\Helper;
 
 use Mageplaza\Core\Helper\AbstractData;
-use Zend_Http_Response;
 
 /**
  * Class Data
@@ -123,6 +122,23 @@ class Data extends AbstractData
      */
     public function getHttpResponse($data)
     {
-        return Zend_Http_Response::extractBody($data);
+        return $this->extractBody($data);
+    }
+
+    /**
+     * Extract the body from a response string
+     *
+     * @param string $response_str
+     *
+     * @return string
+     */
+    public static function extractBody($response_str)
+    {
+        $parts = preg_split('|(?:\r\n){2}|m', $response_str, 2);
+        if (isset($parts[1])) {
+            return $parts[1];
+        }
+
+        return '';
     }
 }
