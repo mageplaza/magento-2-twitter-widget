@@ -67,7 +67,12 @@ define(
                                     'width' : default_param.maxWidth + 'px',
                                     'height' : default_param.maxHeight + 'px'
                                 });
-                                $('.mptwitterwidget-header').css('width', default_param.maxWidth);
+                                if (default_param.maxWidth) {
+                                    $('.mptwitterwidget-header').css('width', default_param.maxWidth);
+                                } else {
+                                    $('.mptwitterwidget-header').css('min-width', '350px');
+                                }
+
                                 twttr.widgets.load(element);
                                 // create follow button if enable
                                 if (follow_btn === '1') {
