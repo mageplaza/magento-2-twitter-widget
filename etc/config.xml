@@ -32,7 +32,6 @@
             </general>
             <display>
                 <theme>light</theme>
-                <border_color>#73818f</border_color>
                 <height>600</height>
             </display>
         </mptwitterwidget>

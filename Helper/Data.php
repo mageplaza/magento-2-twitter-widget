@@ -58,16 +58,6 @@ class Data extends AbstractData
     /**
      * @param null $store
      *
-     * @return mixed
-     */
-    public function getBorderColor($store = null)
-    {
-        return $this->getDisplayConfig('border_color', $store);
-    }
-
-    /**
-     * @param null $store
-     *
      * @return array|mixed|null
      */
     public function getWidth($store = null)
