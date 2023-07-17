@@ -22,6 +22,7 @@
 namespace Mageplaza\TwitterWidget\Block;
 
 use Magento\Framework\View\Element\Template;
+use Magento\Framework\Module\Manager;
 use Magento\Widget\Block\BlockInterface;
 use Mageplaza\TwitterWidget\Helper\Data;
 use Mageplaza\TwitterWidget\Model\Config\Source\Design;
@@ -39,6 +40,11 @@ class Widget extends Template implements BlockInterface
     protected $_template = "twitter.phtml";
 
     /**
+     * @var Manager
+     */
+    protected $moduleManager;
+
+    /**
      * @var Data
      */
     protected $helperData;
@@ -52,9 +58,11 @@ class Widget extends Template implements BlockInterface
      */
     public function __construct(
         Template\Context $context,
+        Manager $moduleManager,
         Data $helperData,
         array $data = []
     ) {
+        $this->moduleManager = $moduleManager;
         $this->helperData = $helperData;
 
         parent::__construct($context, $data);
@@ -65,7 +73,7 @@ class Widget extends Template implements BlockInterface
      */
     public function isEnable()
     {
-        return $this->helperData->isEnabled();
+        return $this->helperData->isEnabled() || $this->moduleManager->isOutputEnabled('Mageplaza_TwitterWidget');
     }
 
     /**
