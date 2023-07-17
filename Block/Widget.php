@@ -73,7 +73,7 @@ class Widget extends Template implements BlockInterface
      */
     public function isEnable()
     {
-        return $this->helperData->isEnabled() || $this->moduleManager->isOutputEnabled('Mageplaza_TwitterWidget');
+        return $this->helperData->isEnabled() && $this->moduleManager->isOutputEnabled('Mageplaza_TwitterWidget');
     }
 
     /**
