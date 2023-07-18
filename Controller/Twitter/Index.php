@@ -32,7 +32,7 @@ use Magento\Framework\HTTP\Adapter\Curl;
 use Magento\Framework\HTTP\Adapter\CurlFactory;
 use Mageplaza\TwitterWidget\Helper\Data;
 use Psr\Log\LoggerInterface;
-use Zend_Http_Client;
+use Laminas\Http\Request;
 
 /**
  * Class Twitter
@@ -125,11 +125,11 @@ class Index extends Action
     {
         $result                = [];
         $params['omit_script'] = '1';
-        $url                   = 'https://publish.twitter.com/oembed?' . http_build_query($params, null, '&');
+        $url                   = 'https://publish.twitter.com/oembed?' . http_build_query($params, "", '&');
 
         /** @var Curl $curl */
         $curl = $this->curlFactory->create();
-        $curl->write(Zend_Http_Client::GET, $url, '1.1', [], '');
+        $curl->write(Request::METHOD_GET, $url, '1.1', [], '');
 
         try {
             $resultCurl = $curl->read();
