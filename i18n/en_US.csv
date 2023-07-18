@@ -23,10 +23,6 @@ Username,Username
 "The Twitter username of the account you would like the viewer to follow","The Twitter username of the account you would like the viewer to follow"
 Display,Display
 Theme,Theme
-"Link color","Link color"
-"Color of link text inside a Twitter widget.","Color of link text inside a Twitter widget."
-"Border color","Border color"
-"Color of border surrounding a Twitter widget.","Color of border surrounding a Twitter widget."
 "Widget width","Widget width"
 "Set the maximum width of the widget. Minimum: 180, maximum: 1200. If empty, auto width will be use","Set the maximum width of the widget. Minimum: 180, maximum: 1200. If empty, auto width will be use"
 "Widget height","Widget height"
@@ -37,8 +33,6 @@ Example,Example
 Title,Title
 Description,Description
 Type,Type
-"Color of link text inside a Twitter widget. Use hex code. Refer <a href=""https://www.w3schools.com/colors/colors_picker.asp"" target=""_blank"">here</a>","Color of link text inside a Twitter widget. Use hex code. Refer <a href=""https://www.w3schools.com/colors/colors_picker.asp"" target=""_blank"">here</a>"
-"Color of border surrounding a Twitter widget. Use hex code. Refer <a href=""https://www.w3schools.com/colors/colors_picker.asp"" target=""_blank"">here</a>","Color of border surrounding a Twitter widget. Use hex code. Refer <a href=""https://www.w3schools.com/colors/colors_picker.asp"" target=""_blank"">here</a>"
 "Tweet URL","Tweet URL"
 "Hide thread","Hide thread"
 "Excluding previous Tweets in the reply thread","Excluding previous Tweets in the reply thread"
